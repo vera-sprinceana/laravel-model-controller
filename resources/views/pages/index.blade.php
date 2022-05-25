@@ -3,13 +3,24 @@
 
 @section('content')
 <main>
-    <div class="bg-main">
+    <div class="bg-main py-4">
      <div class="container mt-4">
-        <div class="row row-cols-4"> 
-            <div class="col card">
-                 <a href="">vai alle info</a>
+        <div class="row row-cols-4 g-3"> 
+            @forelse ($movies as $key=> $movie)
+            <div>
+               <div class="col card text-center">
+                  <h5>{{$movie->title}}</h5> 
+                  <h5>{{$movie->original_title}}</h5>
+                  <h6>{{$movie->nationality}}</h6>
+                  <h6>{{$movie->date}}</h6>
+                  <h6>{{$movie->vote}}</h6>
+                 <a href="{{route('show', ['id' => $movie->id ])}}">vai alle info</a>
+            </div> 
             </div>
-         
+            
+            @empty 
+                <p>Non ci sono film</p>
+            @endforelse
         </div>
 
     </div>

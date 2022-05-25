@@ -13,9 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'Movie@index');
+Route::get('/', 'MovieController@index')->name('home');
 
 //Rotta ('movies)= ['movies'=>'$movies']
-Route::get('/movies/{id}', function ($id) {
-    return view('pages.index');
-});
+Route::get('/show/{id}', 'MovieController@show')->name('show');
