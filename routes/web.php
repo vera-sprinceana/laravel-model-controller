@@ -13,6 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/', 'Movie@index');
+
+//Rotta ('movies)= ['movies'=>'$movies']
+Route::get('/movies/{id}', function ($id) {
+    return view('pages.index');
 });
